@@ -5,7 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #Setup the VM virtualbox setting
     devbox.vm.provider "virtualbox" do |v|
       # 4096
-      v.customize ["modifyvm", :id, "--memory", 8192,"--vram", 12, "--cpus", 2]
+      v.customize ["modifyvm", :id, "--memory", 4096,"--vram", 12, "--cpus", 1]
       v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
     end
 
