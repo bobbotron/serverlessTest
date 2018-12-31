@@ -1,0 +1,24 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "devbox" do |devbox|
+    #Setup the VM virtualbox setting
+    devbox.vm.provider "virtualbox" do |v|
+      # 4096
+      v.customize ["modifyvm", :id, "--memory", 8192,"--vram", 12, "--cpus", 2]
+      v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+    end
+
+    devbox.vm.box = "centos/7"
+    devbox.vm.hostname = "serverless"
+
+    config.vm.network "private_network", ip: "192.168.50.5"
+    config.vm.hostname = "serverless.test.local.com"
+
+    devbox.vm.synced_folder '.', '/vagrant'
+    # devbox.vm.synced_folder ".", "/vagrant-nfs", type: "nfs"
+    devbox.vm.provision "shell", path: "resources/scripts/provision.bash"
+
+
+  end
+end
