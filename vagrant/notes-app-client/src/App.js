@@ -38,7 +38,7 @@ class App extends Component {
     await Auth.signOut();
 
     this.userHasAuthenticated(false);
-     
+
     this.props.history.push("/login");
   }
 
@@ -54,7 +54,7 @@ class App extends Component {
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">Scratch</Link>
+              <Link to="/">Notable</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
