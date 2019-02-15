@@ -1,5 +1,5 @@
 # serverlessTest
 
-Some files for working through this tutorial.
+This repository is a working copy of the code pertaining to this tutorial.
 
 https://serverless-stack.com/
