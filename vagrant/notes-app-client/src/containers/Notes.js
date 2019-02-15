@@ -129,6 +129,7 @@ export default class Notes extends Component {
   render() {
     return (
       <div className="Notes">
+        {!this.state.note && <div>Attempting to load note...</div>}
         {this.state.note &&
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="content">
